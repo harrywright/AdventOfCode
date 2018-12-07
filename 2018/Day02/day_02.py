@@ -4,7 +4,6 @@ twice = 0
 thrice = 0
 
 for box_id in box_ids:
-    print(sorted(box_id))
     flag_2 = False
     flag_3 = False
     for char in box_id:
@@ -12,21 +11,25 @@ for box_id in box_ids:
             flag_2 = True
         if box_id.count(char) == 3:
             flag_3 = True
-        print(char + ": " + str(box_id.count(char)))
     if flag_2:
         twice += 1
-        print("Twice!")
     if flag_3:
         thrice += 1
-        print("Thrice!")
 
 print(twice * thrice)
 
 
+for box_1 in box_ids:
+    for box_2 in box_ids:
+        differences = 0
+        flag = None
+        for i in range(len(box_1)):
+            if box_1[i] != box_2[i]:
+                differences += 1
+                if differences > 1:
+                    break
+                else:
+                    flag = i
+        if differences == 1:
+            print(box_1[:flag]+box_1[flag+1:])
 
-print(sorted(box_ids))
-
-
-print(len(box_ids))
-
-number_of_boxes = len(box_ids)
