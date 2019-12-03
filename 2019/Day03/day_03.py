@@ -42,13 +42,32 @@ def get_closest_point(points: List[Tuple[int, int]]) -> Tuple[int, int]:
 
 
 def get_closest_intersection(path1: List[str], path2: List[str]) -> Tuple[int, int]:
+    return get_closest_point(get_intersections(path1, path2))
+
+
+def steps_to_point(path: List[str], point: Tuple[int, int]) -> int:
+    points = get_points_on_path(path)
+    return points.index(point) + 1  # add 1 to include (0,0) at start
+
+
+def get_quickest_intersection(path1: List[str], path2: List[str]) -> Tuple[int, int]:
+    least_steps = None
+    quickest_intersection = None
     intersections = get_intersections(path1, path2)
-    return get_closest_point(intersections)
+    for intersection in intersections:
+        steps = steps_to_point(path1, intersection) + steps_to_point(path2, intersection)
+        if not least_steps or steps < least_steps:
+            least_steps = steps
+            quickest_intersection = intersection
+    return quickest_intersection
 
 
 with open('input.txt', 'r') as f:
     input_path1 = f.readline().split(',')
     input_path2 = f.readline().split(',')
 
+closest = get_closest_intersection(input_path1, input_path2)
+print(f'Part 1: Closest {closest[0] + closest[1]}')
 
-print(f'Part 1: Closest {get_closest_intersection(input_path1, input_path2)}')
+quickest = get_quickest_intersection(input_path1, input_path2)
+print(f'Part 2: Quickest {steps_to_point(input_path1, quickest) + steps_to_point(input_path2, quickest)}')
