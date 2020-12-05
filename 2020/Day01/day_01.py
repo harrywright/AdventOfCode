@@ -1,28 +1,23 @@
+import functools
 import itertools
+import operator
 
-data = []
-
-with open("input.txt") as f:
-    for line in f:
-        line.strip()
-        data.append(int(line))
-
-for n1 in data:
-    for n2 in data:
-        if n1 + n2 == 2020:
-            print(f'{n1} {n2} {n1 + n2} {n1 * n2}')
-
-for n1 in data:
-    for n2 in data:
-        for n3 in data:
-            if n1 + n2 + n3 == 2020:
-                print(f'{n1} {n2} {n3} {n1 + n2 + n3} {n1 * n2 * n3}')
+from typing import List
 
 
-for entries in itertools.combinations(data, 2):
-    if sum(entries) == 2020:
-        print(f'{entries}')
+def find_entries_with_sum(data: List[int], target: int, count: int) -> None:
+    for entries in itertools.combinations(data, count):
+        if sum(entries) == target:
+            print(f'{entries} => {functools.reduce(operator.mul, entries)}')
 
-for entries in itertools.combinations(data, 3):
-    if sum(entries) == 2020:
-        print(f'{entries}')
+
+if __name__ == '__main__':
+    data = []
+
+    with open("input.txt") as f:
+        for line in f:
+            line.strip()
+            data.append(int(line))
+
+    find_entries_with_sum(data, 2020, 2)
+    find_entries_with_sum(data, 2020, 3)
