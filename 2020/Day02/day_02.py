@@ -24,14 +24,15 @@ def check_data_new(data):
     return False
 
 
-data = []
+if __name__ == '__main__':
+    data = []
 
-with open("input.txt") as f:
-    for line in f:
-        line = line.strip()
-        data.append(parse_data(line))
+    with open("input.txt") as f:
+        for line in f:
+            line = line.strip()
+            data.append(parse_data(line))
 
-total = 0
-for entry in data:
-    if check_data_new(entry): total = total + 1
-print(total)
+    total = 0
+    for entry in data:
+        if check_data_new(entry): total = total + 1
+    print(total)
