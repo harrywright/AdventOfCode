@@ -22,8 +22,8 @@ if __name__ == '__main__':
             line = line.strip()
             data.append(line)
 
-    print(count_trees(data, (1,1)))
-    print(count_trees(data, (3,1)))
-    print(count_trees(data, (5,1)))
-    print(count_trees(data, (7,1)))
-    print(count_trees(data, (1,2)))
+    print(count_trees(data, (1, 1)))
+    print(count_trees(data, (3, 1)))
+    print(count_trees(data, (5, 1)))
+    print(count_trees(data, (7, 1)))
+    print(count_trees(data, (1, 2)))

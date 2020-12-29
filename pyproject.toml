@@ -6,6 +6,7 @@ authors = ["Harry Wright <harry@wright.dev>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+pytest = "^6.2.1"
 
 [tool.poetry.dev-dependencies]
 
