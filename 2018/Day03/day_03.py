@@ -24,7 +24,7 @@ for claim in claims:
 
 multiclaim = 0
 for r in range(fabric.shape[0]):
-    for c, d in zip(fabric.rows[r], fabric.data[r]):
+    for c, d in zip(fabric.rows[r], fabric.puzzle_input[r]):
         if d > 1:
             multiclaim += 1
 print(multiclaim)
