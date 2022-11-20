@@ -1,8 +1,8 @@
 def depth_count(data: list[int]) -> int:
     count = 0
-    previous = None
+    previous, *data = data
     for depth in data:
-        if previous and depth > previous:
+        if depth > previous:
             count += 1
         previous = depth
     return count
