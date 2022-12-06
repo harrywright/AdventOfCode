@@ -5,12 +5,16 @@ description = ""
 authors = ["Harry Wright <harry@wright.dev>"]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<3.11"
-pytest = "^6.2.1"
-numpy = "^1.21.4"
-advent-of-code-data = "^1.1.1"
+python = ">=3.10,<3.11"
+pytest = "^6"
+numpy = "^1"
+advent-of-code-data = "^1"
 
 [tool.poetry.dev-dependencies]
+
+[tool.pyright]
+venvPath = "/home/harry/.cache/pypoetry/virtualenvs"
+venv = "adventofcode-L9K_8rV3-py3.10"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
