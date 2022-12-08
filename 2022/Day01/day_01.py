@@ -24,8 +24,18 @@ if __name__ == '__main__':
     puzzle = Puzzle(year=2022, day=1)
     puzzle_input = puzzle.input_data.splitlines()
 
-    # convert input to ints
-    puzzle_input = [int(line) for line in puzzle_input]
+    parsed_input = []
+    temp = []
+    for line in puzzle_input:
+        if line == '':
+            parsed_input.append(temp)
+            temp = []
+            continue
+        temp.append(int(line))
 
-    print(depth_count(puzzle_input))
-    print(slide_depth_count(puzzle_input))
+    print(max(sum(elf) for elf in parsed_input))
+
+    sums = [sum(elf) for elf in parsed_input]
+    sums.sort(reverse=True)
+    print(sums[0]+sums[1]+sums[2])
+
