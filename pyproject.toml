@@ -6,7 +6,7 @@ authors = ["Harry Wright <harry@wright.dev>"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
-pytest = ">=7"
+pytest = ">=9.0.3"
 numpy = ">=1"
 advent-of-code-data = "^1"
 
